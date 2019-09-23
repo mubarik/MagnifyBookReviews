@@ -10,4 +10,18 @@ class Book < ApplicationRecord
         message: 'must be a URL for GIF, JPG or PNG image.'
         }
 
+    def averageRating
+    	sum = 0
+    	average =0
+    	self.reviews.each do |review|
+    		sum = sum + review.rating
+    		puts 'in average method'
+    		puts sum
+    	end
+    	total = self.reviews.length
+    	if total > 0
+			average = sum/total
+		end
+		average
+    end    
 end

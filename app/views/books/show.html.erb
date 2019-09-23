@@ -19,7 +19,13 @@
   <strong>Price:</strong>
   <%= @book.price %>
 </p>
-
+<h2>All Reviews</h2>
+<% @book.reviews.each do |review| %>
+	<div class="entry">
+		<h3><%= review.reviewer %></h3>
+		<%= sanitize(review.body) %>
+	</div>
+<% end %>
 <h2>Add a Review:</h2>
 <%= form_with(model: [ @book, @book.reviews.build ], local: true) do |form| %>
   <p>
@@ -28,7 +34,7 @@
   </p>
    <p>
     <%= form.label :rating %><br>
-    <%= form.text_field :rating %>
+    <%= form.number_field :rating %>
   </p>
   <p>
     <%= form.label :body %><br>
@@ -40,4 +46,4 @@
 <% end %>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<%= link_to 'Back', catalog_index_path %>

@@ -1,16 +1,16 @@
 <p id="notice"><%= notice %></p>
 <h1>Your Books Catalog</h1>
-<% cache @books do %>
-	<% @books.each do |book| %>
-		<% cache book do %>
-			<div class="entry">
-				<%= image_tag(book.image_url) %>
-				<h3><%= book.title %></h3>
-				<%= sanitize(book.description) %>
-				<div class="price_line">
-					<span class="price"><%= book.price %></span>
-				</div>
+<% @books.each do |book| %>
+		<div class="entry">
+			<%= image_tag(book.image_url) %>
+			<h3><%= book.title %></h3>
+			<%= sanitize(book.description) %>
+			<div class="price_line">
+				<span class="price"><%= book.averageRating %></span>
 			</div>
-		<% end %>
-	<% end %>
+			<div class="price_line">
+				<%= link_to 'Show', book %><br/>
+			</div>
+		</div>
 <% end %>
+
