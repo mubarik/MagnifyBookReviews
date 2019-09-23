@@ -9,6 +9,7 @@
 Book.delete_all
 # . . .
 Book.create!(title: 'Seven Mobile Apps in Seven Weeks',
+author_name: 'mubarik',	
 description:
 %{<p>
 <em>Native Apps, Multiple Platforms</em>

@@ -15,8 +15,6 @@ class Book < ApplicationRecord
     	average =0
     	self.reviews.each do |review|
     		sum = sum + review.rating
-    		puts 'in average method'
-    		puts sum
     	end
     	total = self.reviews.length
     	if total > 0
